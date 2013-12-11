@@ -1,0 +1,5 @@
+#!/bin/bash
+
+set -e
+
+git log --color=always --graph --pretty=format:'%C(yellow)%h%Creset%C(cyan)%d%Creset %C(white bold)%s%Creset %C(white dim)(by %an %ar)%Creset' --all $@
