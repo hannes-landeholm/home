@@ -2,6 +2,7 @@
 .cache
 .config
 .dbus
+.gitconfig
 .gnupg
 .java
 .lesshst
