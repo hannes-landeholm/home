@@ -12,6 +12,7 @@
 .pki
 .psql_history
 .ssh
+.tmux-session
 .xinitrc
 bin/jhost
 bin/jhttp
