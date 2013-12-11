@@ -2,6 +2,8 @@
 .cache
 .config
 .dbus
+.gdbinit
+.gem
 .gitconfig
 .gnupg
 .java
@@ -9,6 +11,8 @@
 .local
 .macromedia
 .netbeans
+.node-gyp/
+.npm/
 .pki
 .psql_history
 .ssh
@@ -20,9 +24,12 @@ bin/jinit
 bin/jsetup
 bin/jssh
 bin/jstore
+ceph-etc/
+config/
 Downloads/
 hipchatlog.txt
 jumpstarter/
 libs
+tmp/
 root-stack/
 Wallpapers/
