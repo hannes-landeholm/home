@@ -1,0 +1,5 @@
+#!/bin/bash
+
+set -e
+
+setxkbmap -query | sed -n 's/layout:\s*\(\w\+\)/\1/p'
