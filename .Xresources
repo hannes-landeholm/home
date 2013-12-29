@@ -179,3 +179,7 @@ URxvt*color6  : #34E2E2
 URxvt*color15 : #D3D7CF
 URxvt*color7  : #EEEEEC
 
+! Keyboard copy paste. Using /usr/lib64/urxvt/perl/clipboard
+URxvt*keysym.Shift-Control-V: perl:clipboard:paste
+URxvt*iso14755: False
+URxvt*perl-ext-common: default,clipboard
