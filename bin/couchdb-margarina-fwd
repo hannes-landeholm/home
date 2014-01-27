@@ -1,0 +1,2 @@
+#!/bin/env bash
+ssh -v -L 5984:localhost:5984 hannes@margarina.jumpstarter.io "echo -e 'forwarding couchdb...\nhttp://localhost:5984/_utils/ (ctrl+c to exit)'; cat > /dev/null"
