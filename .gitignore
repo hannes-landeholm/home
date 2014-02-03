@@ -18,6 +18,7 @@
 .ssh
 .tmux-session
 .xinitrc
+bin/couchdb-*
 bin/jhost
 bin/jhttp
 bin/jinit
