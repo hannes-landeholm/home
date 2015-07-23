@@ -1,0 +1,69 @@
+[user]
+	email = hannes@jumpstarter.io
+	name = Hannes Landeholm
+[core]
+	editor = "nano"
+	excludesfile = /home/hannes/.gitignore_global
+[push]
+	default = current
+
+[pager]
+        diff = diff-highlight | less
+        log = diff-highlight | less
+        show = diff-highlight | less
+
+[advice]
+  pushNonFastForward = false
+  statusHints = false
+  commitBeforeMerge = false
+  resolveConflict = true
+  implicitIdentity = false
+  detachedHead = false
+
+[alias]
+
+# Logic:
+#
+# The 'git stash save' fails if the tree is clean (instead of
+# creating an empty stash :P). So, we only 'stash' and 'pop' if
+# the tree is dirty.
+#
+# The 'git rebase --whitespace=fix HEAD~' throws away the commit
+# if it's empty, and adding '--keep-empty' prevents the whitespace
+# from being fixed. So, we first check that the index is dirty.
+#
+# Also:
+# - '(! git diff-index --quiet --cached HEAD)' is true (zero) if
+#   the index is dirty
+# - '(! git diff-files --quiet .)' is true if the tree is dirty
+#
+# The 'rebase --whitespace=fix' trick is from here:
+# http://stackoverflow.com/a/19156679/470844
+fixws = !"\
+  if (! git diff-files --quiet .) && \
+     (! git diff-index --quiet --cached HEAD) ; then \
+    git commit -m FIXWS_SAVE_INDEX && \
+    git stash save FIXWS_SAVE_TREE && \
+    git rebase --whitespace=fix HEAD~ && \
+    git reset --soft HEAD~ && \
+    git stash pop ; \
+  elif (! git diff-index --quiet --cached HEAD) ; then \
+    git commit -m FIXWS_SAVE_INDEX && \
+    git rebase --whitespace=fix HEAD~ && \
+    git reset --soft HEAD~ ; \
+  fi"
+
+# Commit verbose.
+c = "commit -v"
+
+# Status.
+s = "status"
+
+# Add (with patch).
+a = "add -p"
+
+# Diff.
+d = "diff"
+
+# Cached diff.
+cd = "diff --cached"
